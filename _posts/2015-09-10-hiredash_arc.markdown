@@ -12,8 +12,8 @@ header-img: "img/post-bg-01.jpg"
 。Mongodb结构灵活,配合[monogose](https://github.com/Automattic/mongoose)使用，触感丝滑毫无阻力。
 
 ##Reactjs
-[Reactjs](https://github.com/facebook/react)是最近两年来前段的风猪。由Facebook公司开发并开源,组件化的开发方式让原本不熟悉前端的同学
-也能快速上手，前段虽然坑深坑广，单也从侧面说明前端发展迅速，工具丰富。在用Reactjs开发过程中使用了[Webpack]((https://github.com/Automattic/mongoose))
+[Reactjs](https://github.com/facebook/react)是最近两年来前段的风猪。由Facebook公司开发并开源,组件化的开发方式让原本不熟悉前端的同学也能快速上手，
+前段虽然坑深坑广，但也从侧面说明前端发展迅速，工具丰富。在用Reactjs开发过程中使用了[Webpack]()
 和众多强大的插件,完成整个开发生命周期。下面推荐几个
 
 ##[webpack-dev-server]() + [HotModuleReplacementPlugin]()
