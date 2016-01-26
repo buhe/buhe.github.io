@@ -3,7 +3,7 @@ layout:     post
 title:      "HireDash 技术架构"
 subtitle:   "There is no such thing as a great talent without great will - power."
 date:       2015-09-10 12:00:00
-author:     "HireDash Team"
+author:     "bu he"
 header-img: "img/post-bg-01.jpg"
 ---
 

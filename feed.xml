@@ -1,30 +1,125 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>bu he Blog</title>
+    <description>React Naitve,Micro service,ReactJS</description>
+    <link>http://blog.qiufit.cn/</link>
+    <atom:link href="http://blog.qiufit.cn/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 26 Jan 2016 17:27:13 +0800</pubDate>
+    <lastBuildDate>Tue, 26 Jan 2016 17:27:13 +0800</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>React Native实践</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;简介&lt;/h2&gt;
+&lt;p&gt;今年的当红炸子鸡，后端是docker，mesos，前端就是React Native了。
+我前6年的职业生涯主要集中在backend，基本上跟大多数后端同学差不多，在填大数据，高并发，数据分析这几个坑。
+从去年开始离开公司在家Zen和做一些不怎么叫座的项目打发日子，今年在头脑中孵化了一个还不错的项目准备开始认真做起来。
+在前端选型上肯定选择效率比较高的选择，但是又害怕RN在功能实现上和App Store上有政策问题，先和朋友合作开发了一款
+App验证RN在实际项目中的效果。
+废话不多说，因为这是一款国内的App，而且没有盈利点，所以用了很多免费的云端服务。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;云服务&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://leancloud.cn&quot;&gt;leancloud&lt;/a&gt; ,国内做的比较成熟的BaaS，我原来的公司就是做类似项目的，我也是那个项目的负责人
+之一，其实对类似的服务还比较有感情，知道大家日子过的一般。leancloud在月百万API以下是免费的。
+&lt;a href=&quot;https://github.com/leancloud/javascript-sdk/tree/v1.0.0-rc5&quot;&gt;JS SDK&lt;/a&gt;库也支持了RN，
+他们Team的效率和动作都挺快，技术嗅觉很赞。
+目前还有一些集成问题，如&lt;a href=&quot;https://github.com/leancloud/javascript-sdk/issues/215&quot;&gt;Push notification&lt;/a&gt;。
+但整体感觉还是很顺畅的。另外用了他们短信服务，到达率挺高的，SDK写的也很赞，我也已经付过费，非常感谢。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;网络框架&lt;/h2&gt;
+&lt;p&gt;网络框架用了浏览器上常用的superagent，其实和fetch api也差不多，但是用这个好处就是在所有端都可以用，
+业务代码机会全部可以重用，诱惑太大了。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;本地存储&lt;/h2&gt;
+&lt;p&gt;本地存储用了一些非常好的库&lt;a href=&quot;https://github.com/sunnylqm/react-native-storage&quot;&gt;react-native-storage&lt;/a&gt;,支持JS对象的存储和读取，还支持从服务器端自动fetch功能，
+不过我没有使用。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;动画&lt;/h2&gt;
+&lt;p&gt;动画API用起来不是特别容易，简单用了一下实现了评论按钮很据用户拖动评论按钮做出显示和隐藏的动画。后来发现了一个
+非常棒的库&lt;a href=&quot;https://github.com/oblador/react-native-animatable&quot;&gt;react-native-animatable&lt;/a&gt;，登录失败的后的错误提示用了他的动画效果，非常简单，代码可读性很高，非常感谢。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;三方登录&lt;/h2&gt;
+&lt;p&gt;三方登录在国内是App必备，主要集成了wechat做为第三方登录和分享。在比较了几个实现之后用了qianlong的实现，
+他们的文档和API写的很棒，支持订阅wechat回调App的事件监听，这点非常重要和贴心。美中不足的是Android和iOS的实现
+分开了，导致我在项目中又写了一层去适配iOS和Android，提过issue，不过qianlong的同学动力不足，但瑕不掩瑜。
+我自己因为有分享本地图片需求，提了pr给他们，iOS的同学帮忙merge了，Android同学自己改了下，动了接口，导致我不得
+不用自己的fork，还好npm真心强大可以直接引用github地址。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-6&quot;&gt;附上我的分支:&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/buhe/react-native-wechat-android.git#449209c&quot;&gt;wechat Android&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/buhe/react-native-wechat-ios.git#2d00cd6&quot;&gt;wechat iOS&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;log-in-with-facebook&quot;&gt;国际版Log in with Facebook&lt;/h3&gt;
+&lt;p&gt;国际版是面向Play Store和美国App Store，官方的SDK只支持iOS版本，万能的github网友，提供了一个很棒的实现，
+从名字可以看出来只实现了login功能，因为自己的需求，可耻的提交了一个pr。估计不会被合并吧，只好继续用自己的
+分支:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/buhe/react-native-facebook-login.git#7ca889d&quot;&gt;Facebook Login&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-7&quot;&gt;视频播放组件&lt;/h2&gt;
+
+&lt;p&gt;视频播放是这个App的主要功能，一个非常棒的React Native项目近乎完美的解决了我的问题。不过还是美中不足，他的Android
+版本只能播放在线视频和Asset中的视频，国内一贯的做法是视频缓存到本地SD Card中。所以不得不该了几行代码，改的比较匆忙
+估计被merge的机会不大，有空走心的好好改改。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/brentvatne/react-native-video&quot;&gt;React-Native-Video&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;修改之后的分支:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https:////github.com/buhe/react-native-video.git#d872933&quot;&gt;React-Native-Video&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-8&quot;&gt;图标组件&lt;/h2&gt;
+
+&lt;p&gt;目前没有人实现，自己写了一个还没整理好开源出来，挖了个坑&lt;a href=&quot;https://github.com/buhe/react-native-chart&quot;&gt;React-Native-Chart&lt;/a&gt;
+原理是桥接了&lt;a href=&quot;https://github.com/danielgindi/ios-charts&quot;&gt;iosCharts&lt;/a&gt; 和 &lt;a href=&quot;https://github.com/PhilJay/MPAndroidChart&quot;&gt;MPAndroidCharts&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;code-pushhttpsgithubcommicrosoftreact-native-code-push&quot;&gt;&lt;a href=&quot;https://github.com/Microsoft/react-native-code-push&quot;&gt;Code push&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;大微软的代码动态更新技术，准备1.2版本的时候试用一下&lt;/p&gt;
+
+&lt;h2 id=&quot;pr&quot;&gt;其他在这个过程中写的组件和pr&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/buhe/react-native-fs-modal.git#275c225&quot;&gt;react-native-fs-modal&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/buhe/react-native-progress-bar.git#72a7217&quot;&gt;react-native-progress-bar&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/buhe/react-native-countdown&quot;&gt;react-native-countdown&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 10 Jan 2016 20:00:00 +0800</pubDate>
+        <link>http://blog.qiufit.cn/2016/01/10/react_native_qiu_fitness/</link>
+        <guid isPermaLink="true">http://blog.qiufit.cn/2016/01/10/react_native_qiu_fitness/</guid>
+        
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>HireDash 技术架构</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;整体架构&lt;/h2&gt;
+&lt;p&gt;采用Reactjs + Express + Mongodb 的配套，Express 和 Mongodb是经过时间验证的产品,Express 简洁有力，基于拦截器的架构和Http的模型非常契合。Mongodb结构灵活,配合&lt;a href=&quot;https://github.com/Automattic/mongoose&quot;&gt;monogose&lt;/a&gt;使用，触感丝滑毫无阻力。&lt;/p&gt;
+
+&lt;h2 id=&quot;reactjs&quot;&gt;Reactjs&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/facebook/react&quot;&gt;Reactjs&lt;/a&gt;是最近两年来前端的风猪。由Facebook公司开发并开源,组件化的开发方式让原本不熟悉前端的同学也能快速上手，前端虽然坑深坑广，但也从侧面说明前端发展迅速，工具丰富。在用Reactjs开发过程中使用了&lt;a href=&quot;&quot;&gt;Webpack&lt;/a&gt;和众多强大的插件,完成整个开发生命周期。下面推荐几个&lt;/p&gt;
+
+&lt;h2 id=&quot;webpack-dev-server--hotmodulereplacementplugin&quot;&gt;&lt;a href=&quot;&quot;&gt;webpack-dev-server&lt;/a&gt; + &lt;a href=&quot;&quot;&gt;HotModuleReplacementPlugin&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;采用了这两个工具之后,就可以实现所谓的live-reload。实现改变代码,css后不刷新，并能保留React的state，可以提高开发效率和方便调试，实际用过之后非常棒。&lt;/p&gt;
+
+&lt;h2 id=&quot;autoprefixer&quot;&gt;&lt;a href=&quot;&quot;&gt;autoprefixer&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;
+postcss: [ autoprefixer({ browsers: [&#39;last 2 versions&#39;] }) ],
+&lt;/code&gt;
+这个工具也非常好，是postcss工具链的一部分，可以自动添加浏览器prefix，例如我们使用了flex布局，各大浏览器有私有prefix，用了这个工具之后就省了很多工作量，快试试吧。&lt;/p&gt;
+
+&lt;h2 id=&quot;reactjs--react-native-&quot;&gt;Reactjs 和 [React Native] 的重用&lt;/h2&gt;
+&lt;p&gt;我们同时采用了Reactjs和React Native做双端开发。这样的好处是我们重用了业务层几乎所有代码，UI也有部分重用。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 10 Sep 2015 20:00:00 +0800</pubDate>
+        <link>http://blog.qiufit.cn/2015/09/10/hiredash_arc/</link>
+        <guid isPermaLink="true">http://blog.qiufit.cn/2015/09/10/hiredash_arc/</guid>
+        
+        
+      </item>
+    
   </channel>
 </rss>

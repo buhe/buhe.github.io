@@ -1,13 +1,13 @@
 # Site settings
-title: HireDash Team Blog
+title: bu he Blog
 header-img: img/home-bg.jpg
-email: your-email@yourdomain.com
-description: "简洁 易用 笔试Online 面试Online!"
+email: bugu1986@126.com
+description: "React Naitve,Micro service,ReactJS"
 baseurl: ""
-url: "http://blog.hiredash.cn"
-twitter_username: hiredash
-github_username:  hiredash
-facebook_username:  hiredash
+url: "http://blog.qiufit.cn"
+twitter_username: qiufit
+github_username:  buhe
+facebook_username:  buhe
 
 # Build settings
 markdown: kramdown
