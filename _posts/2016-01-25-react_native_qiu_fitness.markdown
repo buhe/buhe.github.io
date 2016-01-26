@@ -59,7 +59,7 @@ App验证RN在实际项目中的效果。
 ##视频播放组件
 
 视频播放是这个App的主要功能，一个非常棒的React Native项目近乎完美的解决了我的问题。不过还是美中不足，他的Android
-版本只能播放在线视频和Asset中的视频，国内一贯的做法是视频缓存到本地SD Card中。所以不得不该了几行代码，改的比较匆忙
+版本只能播放在线视频和Asset中的视频，国内一贯的做法是视频缓存到本地SD Card中。所以不得不改了几行代码，改的比较匆忙
 估计被merge的机会不大，有空走心的好好改改。
 
 [React-Native-Video](https://github.com/brentvatne/react-native-video)
@@ -68,7 +68,7 @@ App验证RN在实际项目中的效果。
 
 [React-Native-Video](https:////github.com/buhe/react-native-video.git#d872933)
 
-##图标组件
+##图表组件
 
 目前没有人实现，自己写了一个还没整理好开源出来，挖了个坑[React-Native-Chart](https://github.com/buhe/react-native-chart)
 原理是桥接了[iosCharts](https://github.com/danielgindi/ios-charts) 和 [MPAndroidCharts](https://github.com/PhilJay/MPAndroidChart)
